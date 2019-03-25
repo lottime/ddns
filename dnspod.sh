@@ -6,8 +6,8 @@
 # ---------- CONFIG BEGIN ---------- #
 apiId=
 apiToken=
-domain=timelass.com
-subdomain=ddns
+domain=
+subdomain=
 ipCheckUrl=ip.3322.org
 # ----------- CONFIG END ----------- #
 
@@ -45,7 +45,7 @@ datetime=$(date +"%Y-%m-%d %H:%M:%S")
 localIp=$(getLocalIp)
 
 if [ "$localIp" == "$(getCurrentDnsIp)" ];then
-  echo "[$datetime] DDNS UPDATE SKIPPED-1: $localIp"
+  echo "[$datetime] '$subdomain.$domain' ddns update skipped-1: $localIp"
 else
   records=$(getDnsRecords)
   recordId=$(getDnsInfoByKey "$records" 'id')
@@ -55,16 +55,16 @@ else
 
   if [ -n "$recordId" ] && [ -n "$recordLineId" ] && [ -n "$recordType" ] && [ -n "$recordIp" ]; then
     if [ "$localIp" == "$recordIp" ];then
-      echo "[$datetime] DDNS UPDATE SKIPPED-2: $localIp"
+      echo "[$datetime] '$subdomain.$domain' ddns update skipped-2: $localIp"
     else
       result=$(updateDnsRecord "$recordId" "$recordLineId" "$recordType" "$localIp")
       code="$(echo ${result#*code\"}|cut -d'"' -f2)"
       message="$(echo ${result#*message\"}|cut -d'"' -f2)"
 
       if [ "$code" == "1" ]; then
-        echo "[$datetime] DDNS UPDATE SUCCESSFUL: $recordIp -> $localIp"
+        echo "[$datetime] '$subdomain.$domain' ddns update successful: $recordIp -> $localIp"
       else
-        echo "[$datetime] DDNS UPDATE FAIL: $message"
+        echo "[$datetime] '$subdomain.$domain' ddns update failed: $message"
       fi
     fi
   fi
