@@ -18,6 +18,10 @@ subdomain=
 ipCheckUrl=ip.3322.org
 # ----------- CONFIG END ----------- #
 ```
+设置文件可执行权限：
+```
+chmod +x /path/to/dnspod.sh
+```
 
 ### 2. 定时任务
 加入系统定时任务（此例为每小时执行一次）：
