@@ -1,5 +1,5 @@
 # ddns
-A little shell for DDNS (Dnspod) update with only one script file.
+一个针对 Dnspod 动态域名解析记录更新的小壳子，本程序只有一个文件。
 
 ### 1. 配置文件
 下载 dnspod.sh 文件至服务器，修改其中配置项：
