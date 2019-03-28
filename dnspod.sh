@@ -54,7 +54,10 @@ checkAndUpdate() {
   datetime=$(date +"%Y-%m-%d %H:%M:%S")
   localIp=$(getLocalIp)
 
-  if [ "$localIp" == "$(getCurrentDnsIp $1 $2)" ];then
+  host=$2
+  if [ "$host" == "*" ];then host="any"; fi
+ 
+  if [ "$localIp" == "$(getCurrentDnsIp $1 $host)" ];then
     echo "[$datetime] '$2.$1' ddns update skipped-1: $localIp"
   else
     records=$(getDnsRecords "$1" "$2")
@@ -82,6 +85,7 @@ checkAndUpdate() {
 }
 
 # Update records loop
+set -f
 array=(${hosts//,/ })
 for host in ${array[*]};do
   checkAndUpdate "$domain" "$host"
