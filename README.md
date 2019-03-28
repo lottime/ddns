@@ -12,7 +12,7 @@ apiId=
 apiToken=
 # dnspod.cn 事先设置要解析的域名，如 example.com
 domain=
-# dnspod.cn 事先设置要解析的主机记录，多个记录以逗号分隔，如 www,@,api,blog
+# dnspod.cn 事先设置要解析的主机记录，多个记录以逗号分隔，如 www,@,*,api,blog
 hosts=
 # 用于检测服务器动态公网IP的地址
 ipCheckUrl=ip.3322.org
