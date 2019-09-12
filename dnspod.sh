@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (c) timelass.com
+# Copyright (c) cloudseat.net
 # Dnspod API document: https://www.dnspod.cn/docs/index.html
 # WAN IP check: ip.3322.org, ifconfig.me, ipinfo.io/ip, ipecho.net/plain, myip.ipip.net
 
@@ -56,7 +56,7 @@ checkAndUpdate() {
 
   host=$2
   if [ "$host" == "*" ];then host="any"; fi
- 
+
   if [ "$localIp" == "$(getCurrentDnsIp $1 $host)" ];then
     echo "[$datetime] '$2.$1' ddns update skipped-1: $localIp"
   else
