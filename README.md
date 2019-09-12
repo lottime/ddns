@@ -1,4 +1,4 @@
-# Dnspod DDNS 更新脚本使用说明
+# Dnspod DDNS 使用说明
 
 ### 一. 下载脚本
 
