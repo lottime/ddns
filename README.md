@@ -1,10 +1,16 @@
-# ddns
-一个针对 Dnspod 动态域名解析记录更新的小壳子，本程序只有一个文件。
+# Dnspod DDNS 更新脚本使用说明
 
-### 1. 配置文件
-下载 dnspod.sh 文件至服务器，修改其中配置项：
+### 一. 下载脚本
 
+```bash
+git clone https://github.com/someworks/dnspod.sh.git
 ```
+
+### 二. 修改配置
+
+打开`dnspod.sh`，修改其中头部的配置项：
+
+```bash
 # ---------- CONFIG BEGIN ---------- #
 # dnspod.cn 注册的ID
 apiId=
@@ -18,17 +24,22 @@ hosts=
 ipCheckUrl=ip.3322.org
 # ----------- CONFIG END ----------- #
 ```
+
 保存后设置文件可执行权限：
-```
-chmod +x /path/to/dnspod.sh
+
+```bash
+chmod +x dnspod.sh
 ```
 
-### 2. 定时任务
+### 三. 定时任务
+
 加入系统定时任务（此例为每小时执行一次）：
-```
+
+```bash
 crontab -e
 0 */1 * * * /path/to/dnspod.sh >> /path/to/dnspod.log
 ```
 
-### 3. 其他说明
+### 四. 其他说明
+
 由于 Dnspod 对 API 调用频率有一定限制，所以本程序运行时，会首先检测域名当前生效的IP，如果相同则退出；其次检测域名 Dnspod 记录中的IP，相同则退出；最后才真正执行更新操作，以减少记录的更新次数。
