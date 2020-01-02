@@ -7,10 +7,10 @@
 apiId=
 apiToken=
 domain=
-hosts=
-ipCheckUrl=ip.3322.org
+hosts=*,@
 # ----------- CONFIG END ----------- #
 
+ipCheckUrl=ip.3322.org
 dnsUrl="https://dnsapi.cn"
 dnsToken="login_token=${apiId},${apiToken}&format=json"
 ipReg="([0-9]{1,2}|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]{1,2}|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]{1,2}|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]{1,2}|1[0-9][0-9]|2[0-4][0-9]|25[0-5])"
