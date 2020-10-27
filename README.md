@@ -4,7 +4,7 @@
 ## 一. 下载脚本
 
 ```bash
-git clone https://github.com/someworks/ddns.sh.git
+git clone https://github.com/seatwork/ddns.sh.git
 ```
 
 ## 二. 修改配置
